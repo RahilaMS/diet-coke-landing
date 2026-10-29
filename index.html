@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diet Coke® | Feel the Splash</title>
+  <meta name="description" content="Experience the crisp, refreshing crash of an ice-cold Diet Coke. Scroll to splash and feel the sugar-free intensity.">
+  
+  <!-- Premium Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Outfit:wght@300;400;600;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#E51937", // Diet Coke Red
+            "background-light": "#F8F8F8", // Soft silver/white
+            "background-dark": "#121212", // Deep black
+            "silver-light": "#E0E0E0",
+            "silver-dark": "#2A2A2A"
+          },
+          fontFamily: {
+            display: ['"Bodoni Moda"', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          borderRadius: {
+            DEFAULT: "0.75rem",
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'bubble': 'bubble 4s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            bubble: {
+              '0%': { transform: 'translateY(0) scale(1)', opacity: '0' },
+              '50%': { transform: 'translateY(-50px) scale(1.2)', opacity: '0.5' },
+              '100%': { transform: 'translateY(-100px) scale(1)', opacity: '0' },
+            }
+          }
+        },
+      },
+    };
+  </script>
+
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Premium Preloader Overlay -->
+  <div id="preloader" class="preloader">
+    <div class="preloader-content">
+      <div class="brand-logo-large">
+        <span class="diet">diet</span> <span class="coke">Coke</span>
+      </div>
+      <div class="spinner-wrapper">
+        <svg class="progress-ring" width="120" height="120">
+          <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.05)" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"/>
+          <circle id="loading-progress-circle" class="progress-ring__circle" stroke="#ff0844" stroke-width="4" fill="transparent" r="50" cx="60" cy="60"/>
+        </svg>
+        <div id="loading-percent" class="loading-percent">0%</div>
+      </div>
+      <div id="loading-status" class="loading-status">Getting it ice cold...</div>
+    </div>
+    <div class="preloader-glow"></div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="header">
+    <div class="logo">
+      <span class="diet-logo">diet</span>
+      <span class="coke-logo">Coke</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#intro" class="nav-item active" data-sec="0">The Collision</a>
+      <a href="#splash" class="nav-item" data-sec="1">The Splash</a>
+      <a href="#intensity" class="nav-item" data-sec="2">The Intensity</a>
+      <a href="#taste" class="nav-item" data-sec="3">The Taste</a>
+      <a href="#about" class="nav-item-static">The Standard</a>
+      <a href="#features" class="nav-item-static">Why It's Iconic</a>
+      <a href="#nutrition" class="nav-item-static">Nutrition</a>
+    </nav>
+    <a href="#order" class="cta-button">Get A Cold One</a>
+  </header>
+
+  <!-- Main Scroll Container -->
+  <main class="scroll-container">
+    
+    <!-- Sticky Canvas Background -->
+    <div class="canvas-wrapper">
+      <div class="canvas-glow"></div>
+      <div id="hero-overlay" class="hero-overlay">
+        <h1 class="hero-title">Diet Coke</h1>
+        <p class="hero-subtitle">Bold Taste. Zero Sugar.<br>Refresh Without Limits.</p>
+      </div>
+      <canvas id="splash-canvas"></canvas>
+    </div>
+
+    <!-- Scroll Sections containing Overlay Cards -->
+    
+    <!-- Section 1: Intro -->
+    <section id="section-1" class="scroll-section">
+      <div class="content-card">
+        <span class="badge">Introducing</span>
+        <h1 class="title">CRISP.<br>SUGAR-FREE.<br><span class="highlight-red">INTENSE.</span></h1>
+        <p class="description">Experience the legendary crisp taste of Diet Coke. Scroll down to unleash a tidal wave of ice-cold refreshment.</p>
+        <div class="scroll-hint">
+          <span class="mouse-icon"><span class="mouse-wheel"></span></span>
+          <span class="hint-text">Scroll to Drop</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: The Collision -->
+    <section id="section-2" class="scroll-section">
+      <div class="content-card left-align">
+        <span class="badge">The Collision</span>
+        <h2 class="title">FEEL THE<br><span class="highlight-silver">CRASH.</span></h2>
+        <p class="description">A high-velocity collision of pure silver design plunging into a sea of carbonated flavor.</p>
+      </div>
+    </section>
+
+    <!-- Section 3: The Splash -->
+    <section id="section-3" class="scroll-section">
+      <div class="content-card right-align">
+        <span class="badge">Liquid Art</span>
+        <h2 class="title">EXPLOSIVE<br><span class="highlight-red">REFRESHMENT.</span></h2>
+        <p class="description">Every single droplet bursting into the air carries the signature fizz that instantly sparks your senses.</p>
+      </div>
+    </section>
+
+    <!-- Section 4: Pure Satisfaction -->
+    <section id="section-4" class="scroll-section">
+      <div class="content-card centered">
+        <span class="badge">The Verdict</span>
+        <h2 class="title">ALWAYS DIET COKE.</h2>
+        <p class="description">Zero Sugar. Zero Calories. One hundred percent uncompromising satisfaction, serve after serve.</p>
+        <div class="final-actions">
+          <button class="action-btn primary-btn">Find a Retailer</button>
+          <button class="action-btn secondary-btn">Learn More</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Scroll Progress Bar at the top of the viewport -->
+  <div class="page-scroll-progress">
+    <div id="progress-bar" class="progress-bar-fill"></div>
+  </div>
+
+  <!-- Background Music/Sound FX Toggle (Optional extra polish) -->
+  <div class="sound-toggle" id="sound-toggle" title="Toggle Bubbles Ambient">
+    <span class="sound-bar bar-1"></span>
+    <span class="sound-bar bar-2"></span>
+    <span class="sound-bar bar-3"></span>
+    <audio id="ambient-audio" loop src="https://assets.mixkit.co/active_storage/sfx/2048/2048-84.wav"></audio>
+  </div>
+
+  <!-- Stitched content from code.html (remaining sections) -->
+  <div class="stitched-content relative z-10 bg-[#0b0b0d]">
+    <!-- The Silver Standard Section -->
+    <section class="py-24 bg-background-light dark:bg-background-dark relative" id="about">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="font-display text-4xl md:text-6xl font-bold mb-8 text-gray-900 dark:text-white">The Silver Standard</h2>
+        <div class="w-24 h-1 bg-primary mx-auto mb-8"></div>
+        <p class="text-xl md:text-3xl font-light leading-relaxed text-gray-700 dark:text-gray-300">
+          Uncompromising taste. Unmistakable style. Diet Coke isn't just a beverage; it's a statement. Crafted for those who demand boldness without the calories.
+        </p>
+      </div>
+    </section>
+
+    <!-- Why You'll Love It Section -->
+    <section class="py-24 bg-silver-light/30 dark:bg-silver-dark/20 relative overflow-hidden" id="features">
+      <div class="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br from-primary/10 to-transparent rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="font-display text-4xl md:text-5xl font-bold mb-4">Why You'll Love It</h2>
+          <p class="text-gray-600 dark:text-gray-400">The perfect balance of flavor and fizz.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="glass-panel p-8 rounded-2xl transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl group">
+            <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <h3 class="text-2xl font-display font-bold mb-4">Crisp Carbonation</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">That signature bite and effervescence that wakes up your palate with every sip.</p>
+          </div>
+          <div class="glass-panel p-8 rounded-2xl transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl group">
+            <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <h3 class="text-2xl font-display font-bold mb-4">Iconic Taste</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">A complex, perfectly balanced flavor profile that has stood the test of time.</p>
+          </div>
+          <div class="glass-panel p-8 rounded-2xl transform transition duration-500 hover:-translate-y-2 hover:shadow-2xl group">
+            <div class="w-16 h-16 bg-gray-100 dark:bg-gray-800 rounded-full flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors">
+              <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.514" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+            </div>
+            <h3 class="text-2xl font-display font-bold mb-4">Refreshing Kick</h3>
+            <p class="text-gray-600 dark:text-gray-400 leading-relaxed">The ultimate mid-day lift or dinner companion, served ice cold.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Unapologetically Refreshing Section -->
+    <section class="bg-primary text-white py-32 relative overflow-hidden">
+      <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?q=80&amp;w=2070&amp;auto=format&amp;fit=crop')] bg-cover bg-center opacity-10 mix-blend-overlay"></div>
+      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+        <h2 class="font-display text-5xl md:text-7xl font-black mb-8 tracking-wide uppercase">Unapologetically Refreshing</h2>
+        <p class="text-xl md:text-2xl font-light text-white/90 max-w-2xl mx-auto">
+          Break the rules, not your diet. Grab a cold one and own your moment.
+        </p>
+      </div>
+    </section>
+
+    <!-- Zero Compromise Section -->
+    <section class="py-24 bg-background-light dark:bg-background-dark" id="nutrition">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-16">
+          <div class="w-full md:w-1/2">
+            <h2 class="font-display text-4xl md:text-5xl font-bold mb-8">Zero Compromise</h2>
+            <div class="grid grid-cols-2 gap-6">
+              <div class="border-t border-gray-300 dark:border-gray-700 pt-4">
+                <p class="text-5xl font-display font-light text-primary mb-2">0<span class="text-2xl text-gray-500 dark:text-gray-400">g</span></p>
+                <p class="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">Calories</p>
+              </div>
+              <div class="border-t border-gray-300 dark:border-gray-700 pt-4">
+                <p class="text-5xl font-display font-light text-primary mb-2">0<span class="text-2xl text-gray-500 dark:text-gray-400">g</span></p>
+                <p class="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">Sugar</p>
+              </div>
+              <div class="border-t border-gray-300 dark:border-gray-700 pt-4">
+                <p class="text-5xl font-display font-light text-primary mb-2">46<span class="text-2xl text-gray-500 dark:text-gray-400">mg</span></p>
+                <p class="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">Caffeine</p>
+              </div>
+              <div class="border-t border-gray-300 dark:border-gray-700 pt-4">
+                <p class="text-5xl font-display font-light text-primary mb-2">40<span class="text-2xl text-gray-500 dark:text-gray-400">mg</span></p>
+                <p class="text-sm font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">Sodium</p>
+              </div>
+            </div>
+            <p class="mt-8 text-sm text-gray-500 dark:text-gray-400">*Per 12 fl oz serving.</p>
+          </div>
+          <div class="w-full md:w-1/2 flex justify-center">
+            <img alt="Diet Coke Nutrition Can" class="w-48 md:w-64 h-auto object-contain drop-shadow-xl relative z-10" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEoSAPUoZRoOuYRcsTWmQlIG5IufTamZ-D0X5XMFiCOfV_N4HAqPcbnAGOJ37G2bYHccRjrLl-icPzVgUf2j3LLmVkxm1g1atcgiAnZ1fuaoQXVY8ZIfOprNUexvgPJm5BFfhBBDG1hU8q_LQ7PmgdsjErbNaaFrtL9GT1-Z-xkbRmoKN66I7kjPGqOB6CNPn3XI-71fyLBDjRA0Gp0Y3Wj-8zg6T5FN145vOgu1qhdIKQKn24Yxsmiw">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Fans of the Crisp Section -->
+    <section class="py-24 bg-silver-light/20 dark:bg-silver-dark/30">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="font-display text-3xl font-bold text-center mb-16 uppercase tracking-widest text-gray-500 dark:text-gray-400">Fans of the Crisp</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+          <div class="text-center">
+            <p class="text-xl font-display italic text-gray-800 dark:text-gray-200 mb-6">"Nothing hits quite like a Diet Coke from a fountain with extra ice. It's a daily ritual."</p>
+            <p class="text-sm font-semibold text-primary uppercase">Sarah T.</p>
+          </div>
+          <div class="text-center">
+            <p class="text-xl font-display italic text-gray-800 dark:text-gray-200 mb-6">"The silver can is iconic. The taste is unmatched. It's the only soda I'll drink."</p>
+            <p class="text-sm font-semibold text-primary uppercase">Marcus J.</p>
+          </div>
+          <div class="text-center hidden lg:block">
+            <p class="text-xl font-display italic text-gray-800 dark:text-gray-200 mb-6">"That perfect level of carbonation. It's truly the gold standard, or should I say, silver."</p>
+            <p class="text-sm font-semibold text-primary uppercase">Elena R.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-950 text-white py-16 border-t-4 border-primary">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-8 md:mb-0">
+            <span class="font-display font-bold text-3xl text-white">Diet Coke</span>
+          </div>
+          <div class="flex space-x-8">
+            <a class="text-gray-400 hover:text-white transition-colors" href="#">Products</a>
+            <a class="text-gray-400 hover:text-white transition-colors" href="#">Where to Buy</a>
+            <a class="text-gray-400 hover:text-white transition-colors" href="#">Terms</a>
+            <a class="text-gray-400 hover:text-white transition-colors" href="#">Privacy</a>
+          </div>
+        </div>
+        <div class="mt-12 pt-8 border-t border-gray-800 text-center md:text-left flex flex-col md:flex-row justify-between items-center">
+          <p class="text-gray-500 text-sm">© 2024 Diet Coke. All rights reserved.</p>
+          <div class="mt-4 md:mt-0 flex space-x-4">
+            <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+              <span class="sr-only">Instagram</span>
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"></path></svg>
+            </div>
+            <div class="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
+              <span class="sr-only">Twitter</span>
+              <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JavaScript Entry Point -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
